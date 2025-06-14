@@ -27,6 +27,85 @@ html {
   padding: 0 2rem;
 }
 
+/* Spiritual SVG Component Animations */
+.spiritual-om {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.spiritual-infinity {
+  animation: rotate 10s linear infinite;
+}
+
+.spiritual-lotus {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.spiritual-crystal {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.spiritual-peace {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.spiritual-star {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.spiritual-meditation {
+  animation: breathe 5s ease-in-out infinite;
+}
+
+.spiritual-heart {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.spiritual-dove {
+  animation: float 6s ease-in-out infinite;
+}
+
+.spiritual-galaxy {
+  animation: rotate 15s linear infinite;
+}
+
+.spiritual-handshake {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.spiritual-diamond {
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.spiritual-rainbow {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.spiritual-connection {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.spiritual-email {
+  animation: glow 4s ease-in-out infinite;
+}
+
+.spiritual-phone {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.spiritual-sparkles {
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+.rotating {
+  animation: rotate 8s linear infinite;
+}
+
+.inline {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
 /* Loading Screen */
 .loading-screen {
   position: fixed;
@@ -192,13 +271,12 @@ html {
 
 .symbol {
   position: absolute;
-  font-size: 2rem;
-  color: rgba(139, 92, 246, 0.2);
+  opacity: 0.3;
   animation: float 8s ease-in-out infinite;
 }
 
 .om-symbol { top: 20%; left: 10%; animation-delay: 0s; }
-.infinity-symbol { top: 30%; right: 15%; animation-delay: -2s; font-size: 3rem; }
+.infinity-symbol { top: 30%; right: 15%; animation-delay: -2s; }
 .lotus-symbol { bottom: 30%; left: 20%; animation-delay: -4s; }
 .chakra-symbol { top: 60%; right: 10%; animation-delay: -6s; }
 .peace-symbol { bottom: 20%; right: 25%; animation-delay: -8s; }
@@ -395,11 +473,14 @@ html {
   color: rgba(221, 214, 254, 0.9);
   margin-bottom: 2rem;
   letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.quote-symbol {
-  color: #c084fc;
-  margin: 0 0.5rem;
+.quote-symbol svg {
+  animation: twinkle 2s ease-in-out infinite;
 }
 
 .hero-title {
@@ -586,9 +667,9 @@ html {
 }
 
 .section-symbol {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  animation: glow 3s ease-in-out infinite;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .section-title {
@@ -662,9 +743,9 @@ html {
 }
 
 .card-symbol {
-  font-size: 3rem;
   margin-bottom: 1.5rem;
-  animation: glow 3s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .about-card h3 {
@@ -762,7 +843,8 @@ html {
 
 .platform-symbol {
   margin-bottom: 2rem;
-  animation: rotate 20s linear infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .evolance-title {
@@ -831,9 +913,9 @@ html {
 }
 
 .feature-icon {
-  font-size: 3rem;
   margin-bottom: 1.5rem;
-  animation: glow 3s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .feature h4 {
@@ -927,9 +1009,9 @@ html {
 }
 
 .partnership-symbol {
-  font-size: 4rem;
   margin-bottom: 2rem;
-  animation: glow 3s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .partnership-title {
@@ -997,9 +1079,9 @@ html {
 }
 
 .opportunity-icon {
-  font-size: 3rem;
   margin-bottom: 1.5rem;
-  animation: glow 3s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .opportunity h4 {
@@ -1075,9 +1157,9 @@ html {
 }
 
 .contact-symbol {
-  font-size: 4rem;
   margin-bottom: 2rem;
-  animation: glow 3s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-title {
@@ -1159,8 +1241,9 @@ html {
 }
 
 .btn-icon {
-  font-size: 2rem;
   min-width: 3rem;
+  display: flex;
+  justify-content: center;
 }
 
 .btn-text {
@@ -1252,9 +1335,9 @@ html {
 }
 
 .footer-symbol {
-  font-size: 1.5rem;
   margin-bottom: 1rem;
-  animation: glow 3s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-bottom p {
@@ -1269,9 +1352,13 @@ html {
   color: rgba(221, 214, 254, 0.8);
   font-style: italic;
   letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-/* Animations */
+/* Spiritual Animations */
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -1283,8 +1370,8 @@ html {
 }
 
 @keyframes breathe {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.6; }
 }
 
 @keyframes float {
@@ -1294,8 +1381,8 @@ html {
 }
 
 @keyframes glow {
-  0%, 100% { text-shadow: 0 0 10px rgba(192, 132, 252, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(192, 132, 252, 0.8), 0 0 30px rgba(139, 92, 246, 0.6); }
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(192, 132, 252, 0.5)); }
+  50% { filter: drop-shadow(0 0 15px rgba(192, 132, 252, 0.8)) drop-shadow(0 0 25px rgba(139, 92, 246, 0.6)); }
 }
 
 @keyframes shimmer {
@@ -1320,6 +1407,23 @@ html {
   51%, 100% { opacity: 0; }
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.05); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.1) rotate(180deg); filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1334,7 +1438,7 @@ html {
 /* Responsive Design */
 @media (max-width: 1024px) {
   .floating-symbols .symbol {
-    font-size: 1.5rem;
+    opacity: 0.2;
   }
   
   .breathing-circle {
@@ -1399,6 +1503,11 @@ html {
   .breathing-circle {
     width: 300px;
     height: 300px;
+  }
+  
+  .spiritual-quote {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
 
