@@ -1,5 +1,5 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+/* Import Spiritual Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600&display=swap');
 
 /* CSS Reset and Base Styles */
 * {
@@ -12,8 +12,9 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #ffffff;
-  background: #0a0a0f;
+  background: radial-gradient(ellipse at center, #1a0b3a 0%, #0f0515 40%, #000000 100%);
   overflow-x: hidden;
+  position: relative;
 }
 
 html {
@@ -26,6 +27,225 @@ html {
   padding: 0 2rem;
 }
 
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #2d1b69 0%, #1a0b3a 40%, #000000 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.sacred-geometry {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+}
+
+.mandala {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rotate 20s linear infinite;
+}
+
+.mandala-layer {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.layer-1 {
+  width: 300px;
+  height: 300px;
+  border-color: rgba(139, 92, 246, 0.3);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.layer-2 {
+  width: 200px;
+  height: 200px;
+  border-color: rgba(192, 132, 252, 0.5);
+  animation: pulse 3s ease-in-out infinite reverse;
+}
+
+.layer-3 {
+  width: 100px;
+  height: 100px;
+  border-color: rgba(221, 214, 254, 0.7);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.layer-4 {
+  width: 50px;
+  height: 50px;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), transparent);
+  animation: pulse 1s ease-in-out infinite reverse;
+}
+
+.spiritual-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), transparent);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle-0 { left: 10%; animation-delay: -1s; }
+.particle-1 { left: 20%; animation-delay: -2s; }
+.particle-2 { left: 30%; animation-delay: -3s; }
+.particle-3 { left: 40%; animation-delay: -4s; }
+.particle-4 { left: 50%; animation-delay: -5s; }
+
+.loading-text-container {
+  position: relative;
+  z-index: 100;
+  margin-top: 8rem;
+  text-align: center;
+}
+
+.loading-text {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 500;
+  background: linear-gradient(135deg, #ffffff, #c084fc, #8b5cf6, #ddd6fe);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  max-width: 900px;
+}
+
+.loading-cursor {
+  width: 3px;
+  height: 1.5rem;
+  background: linear-gradient(135deg, #8b5cf6, #c084fc);
+  display: inline-block;
+  animation: blink 1s infinite;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+}
+
+.energy-waves {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+  animation: wave 2s ease-in-out infinite;
+}
+
+.wave-1 { bottom: 0; animation-delay: 0s; }
+.wave-2 { bottom: 20px; animation-delay: 0.3s; }
+.wave-3 { bottom: 40px; animation-delay: 0.6s; }
+
+/* Spiritual Background Elements */
+.spiritual-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-symbols {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.symbol {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(139, 92, 246, 0.2);
+  animation: float 8s ease-in-out infinite;
+}
+
+.om-symbol { top: 20%; left: 10%; animation-delay: 0s; }
+.infinity-symbol { top: 30%; right: 15%; animation-delay: -2s; font-size: 3rem; }
+.lotus-symbol { bottom: 30%; left: 20%; animation-delay: -4s; }
+.chakra-symbol { top: 60%; right: 10%; animation-delay: -6s; }
+.peace-symbol { bottom: 20%; right: 25%; animation-delay: -8s; }
+.star-symbol { top: 40%; left: 5%; animation-delay: -10s; }
+
+.energy-field {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+}
+
+.energy-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.ring-1 { width: 200px; height: 200px; animation-delay: 0s; }
+.ring-2 { width: 400px; height: 400px; animation-delay: -2s; }
+.ring-3 { width: 600px; height: 600px; animation-delay: -4s; }
+
+.sacred-patterns {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.pattern {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(139, 92, 246, 0.05);
+  transform: rotate(45deg);
+  animation: rotate 30s linear infinite;
+}
+
+.pattern-1 { top: 10%; left: 80%; }
+.pattern-2 { bottom: 15%; left: 10%; animation-direction: reverse; }
+.pattern-3 { top: 70%; left: 60%; animation-delay: -10s; }
+
 /* Navigation */
 .nav {
   position: fixed;
@@ -33,9 +253,9 @@ html {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 10, 15, 0.9);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .nav-container {
@@ -56,9 +276,8 @@ html {
   color: #ffffff;
 }
 
-.nav-logo img {
-  width: 32px;
-  height: 32px;
+.logo-symbol {
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .nav-links {
@@ -75,7 +294,8 @@ html {
 }
 
 .nav-links a:hover {
-  color: #8b5cf6;
+  color: #c084fc;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
 }
 
 .nav-links a::after {
@@ -98,12 +318,13 @@ html {
   position: relative;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   opacity: 0;
   transform: translateY(50px);
-  transition: all 1s ease;
+  transition: all 1.5s ease;
 }
 
 .hero.visible {
@@ -111,84 +332,122 @@ html {
   transform: translateY(0);
 }
 
-.hero-bg {
+.hero-spiritual-bg {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-
-.hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, 
-    rgba(10, 10, 15, 0.8) 0%, 
-    rgba(139, 92, 246, 0.3) 50%, 
-    rgba(10, 10, 15, 0.9) 100%);
   z-index: -1;
 }
 
+.breathing-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1), transparent 70%);
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.chakra-energy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.chakra {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: glow 3s ease-in-out infinite;
+  position: absolute;
+}
+
+.root-chakra { background: #c53030; bottom: 10%; animation-delay: 0s; }
+.sacral-chakra { background: #dd6b20; bottom: 20%; animation-delay: 0.3s; }
+.solar-chakra { background: #d69e2e; bottom: 30%; animation-delay: 0.6s; }
+.heart-chakra { background: #38a169; top: 50%; animation-delay: 0.9s; }
+.throat-chakra { background: #3182ce; top: 40%; animation-delay: 1.2s; }
+.third-eye-chakra { background: #553c9a; top: 30%; animation-delay: 1.5s; }
+.crown-chakra { background: #805ad5; top: 20%; animation-delay: 1.8s; }
+
 .hero-content {
   text-align: center;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 2rem;
   position: relative;
   z-index: 1;
 }
 
-.hero-title {
+.spiritual-quote {
+  font-family: 'Cinzel', serif;
+  font-size: 1.125rem;
+  font-style: italic;
+  color: rgba(221, 214, 254, 0.9);
   margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.quote-symbol {
+  color: #c084fc;
+  margin: 0 0.5rem;
+}
+
+.hero-title {
+  margin-bottom: 2.5rem;
 }
 
 .hero-name {
   display: block;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #ffffff, #c084fc, #8b5cf6);
+  background: linear-gradient(135deg, #ffffff, #ddd6fe, #c084fc, #8b5cf6);
+  background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
   margin-bottom: 1rem;
   line-height: 1.1;
-  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  text-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
 }
 
 .hero-subtitle {
   display: block;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 400;
+  color: rgba(221, 214, 254, 0.9);
   margin-bottom: 2rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.1em;
 }
 
 .hero-description {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.8;
   margin-bottom: 3rem;
-  max-width: 700px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 4rem;
 }
 
 .hero-scroll {
@@ -203,31 +462,40 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.6);
+  gap: 0.75rem;
+  color: rgba(221, 214, 254, 0.7);
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
 }
 
 .scroll-indicator:hover {
-  color: #8b5cf6;
+  color: #c084fc;
   transform: translateY(-4px);
 }
 
-.scroll-arrow {
-  animation: bounce 2s infinite;
+.sacred-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
+.arrow-line {
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(192, 132, 252, 0.8), transparent);
+  animation: flow 2s ease-in-out infinite;
+}
+
+.arrow-head {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid rgba(192, 132, 252, 0.8);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* Button Styles */
@@ -235,16 +503,17 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.05em;
 }
 
 .btn::before {
@@ -255,7 +524,7 @@ html {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  transition: left 0.6s ease;
 }
 
 .btn:hover::before {
@@ -263,92 +532,92 @@ html {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #8b5cf6, #c084fc);
+  background: linear-gradient(135deg, #8b5cf6, #c084fc, #ddd6fe);
   color: white;
-  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(139, 92, 246, 0.6);
 }
 
 .btn-secondary {
   background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  border: 2px solid rgba(192, 132, 252, 0.5);
   backdrop-filter: blur(20px);
 }
 
 .btn-secondary:hover {
-  background: rgba(139, 92, 246, 0.2);
-  border-color: rgba(139, 92, 246, 0.6);
-  transform: translateY(-2px);
+  background: rgba(192, 132, 252, 0.2);
+  border-color: rgba(192, 132, 252, 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(192, 132, 252, 0.3);
 }
 
 .btn-evolance {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #667eea, #764ba2, #8b5cf6);
   color: white;
-  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
 }
 
 .btn-evolance:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
 }
 
 .btn-partnership {
-  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  background: linear-gradient(135deg, #ff6b6b, #feca57, #ff9ff3);
   color: white;
-  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4);
 }
 
 .btn-partnership:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(255, 107, 107, 0.6);
 }
 
 /* Section Headers */
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.section-symbol {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: glow 3s ease-in-out infinite;
 }
 
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 600;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ffffff, #c084fc);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff, #ddd6fe, #c084fc);
+  background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
 }
 
 .section-subtitle {
+  font-family: 'Cinzel', serif;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(221, 214, 254, 0.8);
   max-width: 600px;
   margin: 0 auto;
+  letter-spacing: 0.05em;
 }
 
 /* About Section */
 .about {
-  padding: 8rem 0;
-  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
+  padding: 10rem 0;
   position: relative;
-}
-
-.about::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 75% 75%, rgba(192, 132, 252, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(26, 11, 58, 0.3) 50%, transparent 100%);
 }
 
 .about-content {
@@ -359,20 +628,21 @@ html {
 .about-text {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+  gap: 3rem;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .about-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(139, 92, 246, 0.1);
-  border-radius: 16px;
-  padding: 2.5rem;
-  transition: all 0.3s ease;
+  background: rgba(139, 92, 246, 0.05);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .about-card::before {
@@ -381,61 +651,102 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.6), transparent);
 }
 
 .about-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
-  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 25px 80px rgba(139, 92, 246, 0.3);
+  border-color: rgba(192, 132, 252, 0.5);
+}
+
+.card-symbol {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  animation: glow 3s ease-in-out infinite;
 }
 
 .about-card h3 {
-  font-size: 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.75rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: #c084fc;
+  margin-bottom: 1.5rem;
+  color: #ddd6fe;
+  letter-spacing: 0.05em;
 }
 
 .about-card p {
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  font-size: 1.1rem;
 }
 
 /* Evolance Section */
 .evolance {
   position: relative;
-  padding: 8rem 0;
+  padding: 10rem 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(45, 27, 105, 0.2) 0%, transparent 50%, rgba(26, 11, 58, 0.2) 100%);
+}
+
+.evolance-spiritual-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.cosmic-web {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-.evolance-bg {
+.web-node {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.8), transparent);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
 }
 
-.evolance-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.node-1 { top: 20%; left: 20%; animation-delay: 0s; }
+.node-2 { top: 20%; right: 20%; animation-delay: 0.5s; }
+.node-3 { bottom: 20%; left: 20%; animation-delay: 1s; }
+.node-4 { bottom: 20%; right: 20%; animation-delay: 1.5s; }
+
+.web-connection {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.3), transparent);
+  animation: flow 4s ease-in-out infinite;
 }
 
-.evolance-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, 
-    rgba(10, 10, 15, 0.9) 0%, 
-    rgba(139, 92, 246, 0.4) 50%, 
-    rgba(10, 10, 15, 0.8) 100%);
-  z-index: -1;
+.connection-1 {
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  transform-origin: left;
+}
+
+.connection-2 {
+  top: 20%;
+  right: 20%;
+  width: 40%;
+  transform: rotate(90deg);
+  transform-origin: right;
+}
+
+.connection-3 {
+  bottom: 20%;
+  left: 20%;
+  width: 60%;
+  animation-delay: 2s;
 }
 
 .evolance-content {
@@ -444,217 +755,170 @@ html {
 }
 
 .evolance-text {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
+.platform-symbol {
+  margin-bottom: 2rem;
+  animation: rotate 20s linear infinite;
+}
+
 .evolance-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
   font-weight: 700;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ffffff, #c084fc, #8b5cf6);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff, #ddd6fe, #c084fc, #8b5cf6);
+  background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  animation: shimmer 4s ease-in-out infinite;
+  text-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
 }
 
 .evolance-tagline {
+  font-family: 'Cinzel', serif;
   font-size: 1.5rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: rgba(221, 214, 254, 0.9);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.1em;
 }
 
 .evolance-description {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.8;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .evolance-features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
 }
 
 .feature {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(139, 92, 246, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.6), transparent);
 }
 
 .feature:hover {
-  transform: translateY(-4px);
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.15);
+  transform: translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.25);
 }
 
 .feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  animation: glow 3s ease-in-out infinite;
 }
 
 .feature h4 {
-  font-size: 1.25rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: #c084fc;
+  margin-bottom: 1rem;
+  color: #ddd6fe;
+  letter-spacing: 0.05em;
 }
 
 .feature p {
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 1.1rem;
 }
 
 /* Partnership Section */
 .partnership {
   position: relative;
-  padding: 8rem 0;
+  padding: 10rem 0;
   overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, transparent 50%, rgba(254, 202, 87, 0.1) 100%);
 }
 
-.partnership-bg {
+.partnership-spiritual-bg {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-
-.partnership-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.partnership-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, 
-    rgba(10, 10, 15, 0.8) 0%, 
-    rgba(255, 107, 107, 0.3) 50%, 
-    rgba(10, 10, 15, 0.9) 100%);
   z-index: -1;
+}
+
+.unity-mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+}
+
+.mandala-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 15s linear infinite;
+}
+
+.ring-outer {
+  width: 400px;
+  height: 400px;
+  border-color: rgba(255, 107, 107, 0.2);
+}
+
+.ring-middle {
+  width: 250px;
+  height: 250px;
+  border-color: rgba(254, 202, 87, 0.3);
+  animation-direction: reverse;
+}
+
+.ring-inner {
+  width: 100px;
+  height: 100px;
+  border-color: rgba(255, 159, 243, 0.4);
+}
+
+.mandala-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.8), transparent);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .partnership-content {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.partnership-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ffffff, #ff6b6b);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.partnership-subtitle {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-}
-
-.partnership-description {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.8;
-  margin-bottom: 3rem;
-}
-
-.partnership-opportunities {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.opportunity {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 107, 107, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.opportunity:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 107, 107, 0.3);
-  box-shadow: 0 16px 48px rgba(255, 107, 107, 0.15);
-}
-
-.opportunity h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: #ff6b6b;
-}
-
-.opportunity p {
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-}
-
-/* Contact Section */
-.contact {
-  position: relative;
-  padding: 8rem 0;
-  overflow: hidden;
-}
-
-.contact-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-
-.contact-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.contact-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, 
-    rgba(10, 10, 15, 0.9) 0%, 
-    rgba(139, 92, 246, 0.2) 50%, 
-    rgba(10, 10, 15, 0.8) 100%);
-  z-index: -1;
-}
-
-.contact-content {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
@@ -662,29 +926,185 @@ html {
   z-index: 1;
 }
 
-.contact-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 600;
+.partnership-symbol {
+  font-size: 4rem;
   margin-bottom: 2rem;
-  background: linear-gradient(135deg, #ffffff, #c084fc);
+  animation: glow 3s ease-in-out infinite;
+}
+
+.partnership-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff, #ff9ff3, #ff6b6b);
+  background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.partnership-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 159, 243, 0.9);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.1em;
+}
+
+.partnership-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 4rem;
+}
+
+.partnership-opportunities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.opportunity {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.opportunity::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.6), transparent);
+}
+
+.opportunity:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 107, 107, 0.5);
+  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.25);
+}
+
+.opportunity-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  animation: glow 3s ease-in-out infinite;
+}
+
+.opportunity h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ff9ff3;
+  letter-spacing: 0.05em;
+}
+
+.opportunity p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* Contact Section */
+.contact {
+  position: relative;
+  padding: 10rem 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%, rgba(192, 132, 252, 0.1) 100%);
+}
+
+.contact-spiritual-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.connection-web {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.connection-point {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), transparent);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.point-1 { top: 25%; left: 25%; }
+.point-2 { top: 25%; right: 25%; animation-delay: 0.5s; }
+.point-3 { bottom: 25%; left: 25%; animation-delay: 1s; }
+.point-4 { bottom: 25%; right: 25%; animation-delay: 1.5s; }
+
+.connection-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+  animation: flow 3s ease-in-out infinite;
+}
+
+.line-1 { top: 25%; left: 25%; width: 50%; }
+.line-2 { top: 25%; right: 25%; width: 30%; transform: rotate(90deg); }
+.line-3 { bottom: 25%; left: 25%; width: 50%; animation-delay: 1.5s; }
+.line-4 { bottom: 25%; right: 25%; width: 30%; transform: rotate(90deg); animation-delay: 2s; }
+
+.contact-content {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-symbol {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  animation: glow 3s ease-in-out infinite;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(135deg, #ffffff, #ddd6fe, #c084fc);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
 }
 
 .contact-description {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.8;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .contact-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  max-width: 800px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -694,36 +1114,39 @@ html {
 .btn-contact-quaternary {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  border-radius: 16px;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 20px;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   border: none;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(30px);
 }
 
 .btn-contact-primary {
-  background: linear-gradient(135deg, #8b5cf6, #c084fc);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(192, 132, 252, 0.2));
+  border: 1px solid rgba(139, 92, 246, 0.4);
   color: white;
 }
 
 .btn-contact-secondary {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(192, 132, 252, 0.3);
   color: white;
-  backdrop-filter: blur(20px);
 }
 
 .btn-contact-tertiary {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.2));
+  border: 1px solid rgba(102, 126, 234, 0.4);
   color: white;
 }
 
 .btn-contact-quaternary {
-  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(254, 202, 87, 0.2));
+  border: 1px solid rgba(255, 107, 107, 0.4);
   color: white;
 }
 
@@ -731,103 +1154,195 @@ html {
 .btn-contact-secondary:hover,
 .btn-contact-tertiary:hover,
 .btn-contact-quaternary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
 }
 
 .btn-icon {
-  font-size: 1.5rem;
-  min-width: 2rem;
+  font-size: 2rem;
+  min-width: 3rem;
 }
 
 .btn-text {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .btn-label {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
 }
 
 .btn-sub {
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   opacity: 0.8;
+  font-style: italic;
 }
 
 /* Footer */
 .footer {
-  background: linear-gradient(180deg, rgba(10, 10, 15, 0.9) 0%, #0a0a0f 100%);
-  padding: 4rem 0 2rem;
-  border-top: 1px solid rgba(139, 92, 246, 0.1);
+  background: linear-gradient(180deg, rgba(26, 11, 58, 0.3) 0%, #000000 100%);
+  padding: 5rem 0 3rem;
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+  position: relative;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2rem;
-  gap: 2rem;
+  margin-bottom: 3rem;
+  gap: 3rem;
 }
 
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
-
-.footer-brand img {
-  width: 40px;
-  height: 40px;
+  gap: 1.5rem;
 }
 
 .footer-brand h4 {
-  font-size: 1.25rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  color: #ddd6fe;
 }
 
 .footer-brand p {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.875rem;
+  color: rgba(221, 214, 254, 0.7);
+  font-size: 0.95rem;
+  font-style: italic;
 }
 
 .footer-links {
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .footer-section h5 {
+  font-family: 'Cinzel', serif;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #c084fc;
+  letter-spacing: 0.05em;
 }
 
 .footer-section a {
   display: block;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0;
 }
 
 .footer-section a:hover {
-  color: #8b5cf6;
+  color: #c084fc;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+  padding-left: 0.5rem;
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(139, 92, 246, 0.1);
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.footer-symbol {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  animation: glow 3s ease-in-out infinite;
 }
 
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.footer-blessing {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: rgba(221, 214, 254, 0.8);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* Animations */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(120deg); }
+  66% { transform: translateY(10px) rotate(240deg); }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(192, 132, 252, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(192, 132, 252, 0.8), 0 0 30px rgba(139, 92, 246, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleX(0.8); opacity: 0.3; }
+  50% { transform: scaleX(1.2); opacity: 0.8; }
+}
+
+@keyframes flow {
+  0% { opacity: 0.3; transform: translateX(-50px); }
+  50% { opacity: 0.8; transform: translateX(0); }
+  100% { opacity: 0.3; transform: translateX(50px); }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .floating-symbols .symbol {
+    font-size: 1.5rem;
+  }
+  
+  .breathing-circle {
+    width: 400px;
+    height: 400px;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-container {
     padding: 1rem;
@@ -870,6 +1385,21 @@ html {
   .footer-links {
     justify-content: center;
   }
+  
+  .loading-text {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .sacred-geometry {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .breathing-circle {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -881,38 +1411,24 @@ html {
   .evolance,
   .partnership,
   .contact {
-    padding: 4rem 0;
+    padding: 6rem 0;
   }
   
   .about-card,
   .feature,
   .opportunity {
-    padding: 1.5rem;
+    padding: 2rem;
   }
-}
-
-/* Additional animations and effects */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  
+  .hero-content {
+    padding: 1rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .spiritual-quote {
+    font-size: 1rem;
   }
-}
-
-.section-header,
-.about-card,
-.feature,
-.opportunity {
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-/* Smooth scrolling enhancement */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
+  
+  .loading-text {
+    font-size: 1.2rem;
   }
 }
