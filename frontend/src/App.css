@@ -230,6 +230,72 @@ html {
   vertical-align: text-bottom;
 }
 
+/* Illuminating OM Animation */
+.om-illumination-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  animation: omAppear 3s ease-out forwards;
+}
+
+.illuminating-om {
+  animation: omIlluminate 3s ease-in-out infinite;
+}
+
+.om-illumination-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(192, 132, 252, 0.6),
+    0 0 60px rgba(139, 92, 246, 0.4),
+    0 0 80px rgba(139, 92, 246, 0.2);
+  animation: omTextGlow 3s ease-in-out infinite;
+  z-index: 300;
+}
+
+.om-ring-outer {
+  animation: omRingExpand 4s ease-out infinite;
+}
+
+.om-ring-middle {
+  animation: omRingExpand 4s ease-out infinite;
+  animation-delay: 0.5s;
+}
+
+.om-ring-inner {
+  animation: omRingExpand 4s ease-out infinite;
+  animation-delay: 1s;
+}
+
+.om-main-body {
+  animation: omBodyPulse 2s ease-in-out infinite;
+}
+
+.om-dot {
+  animation: omDotGlow 1.5s ease-in-out infinite;
+}
+
+.om-curve {
+  animation: omCurvePulse 2.5s ease-in-out infinite;
+}
+
+.sacred-triangle {
+  animation: omTriangleRotate 8s linear infinite;
+}
+
+.sacred-triangle-inverted {
+  animation: omTriangleRotate 8s linear infinite reverse;
+}
+
 .energy-waves {
   position: absolute;
   bottom: 10%;
@@ -847,29 +913,6 @@ html {
   justify-content: center;
 }
 
-.evolance-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3.5rem, 7vw, 5.5rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff, #ddd6fe, #c084fc, #8b5cf6);
-  background-size: 400% 400%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s ease-in-out infinite;
-  text-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
-}
-
-.evolance-tagline {
-  font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: rgba(221, 214, 254, 0.9);
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.1em;
-}
-
 .evolance-description {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.85);
@@ -1424,6 +1467,70 @@ html {
   50% { opacity: 1; transform: scale(1.1) rotate(180deg); filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); }
 }
 
+/* Illuminating OM Specific Animations */
+@keyframes omAppear {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes omIlluminate {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6));
+    opacity: 0.8;
+  }
+  50% { 
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 60px rgba(192, 132, 252, 0.8))
+            drop-shadow(0 0 80px rgba(139, 92, 246, 0.6));
+    opacity: 1;
+  }
+}
+
+@keyframes omTextGlow {
+  0%, 100% { 
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(192, 132, 252, 0.6),
+      0 0 60px rgba(139, 92, 246, 0.4);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% { 
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 1),
+      0 0 60px rgba(192, 132, 252, 0.8),
+      0 0 90px rgba(139, 92, 246, 0.6),
+      0 0 120px rgba(139, 92, 246, 0.4);
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes omRingExpand {
+  0% { transform: scale(0.8); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes omBodyPulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.1); filter: brightness(1.3); }
+}
+
+@keyframes omDotGlow {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+@keyframes omCurvePulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+  50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+}
+
+@keyframes omTriangleRotate {
+  from { transform: rotate(0deg); opacity: 0.3; }
+  to { transform: rotate(360deg); opacity: 0.3; }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1444,6 +1551,10 @@ html {
   .breathing-circle {
     width: 400px;
     height: 400px;
+  }
+  
+  .om-illumination-text {
+    font-size: 3rem;
   }
 }
 
@@ -1509,6 +1620,10 @@ html {
     flex-direction: column;
     gap: 0.5rem;
   }
+  
+  .om-illumination-text {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1539,5 +1654,9 @@ html {
   
   .loading-text {
     font-size: 1.2rem;
+  }
+  
+  .om-illumination-text {
+    font-size: 2rem;
   }
 }

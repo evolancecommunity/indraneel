@@ -26,6 +26,55 @@ const SpiritualOm = ({ size = 32, className = "" }) => (
   </svg>
 );
 
+const IlluminatingOm = ({ size = 200, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 200 200" className={`illuminating-om ${className}`}>
+    <defs>
+      <radialGradient id="omIllumination" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="#ffffff" stopOpacity="1"/>
+        <stop offset="20%" stopColor="#ddd6fe" stopOpacity="0.9"/>
+        <stop offset="40%" stopColor="#c084fc" stopOpacity="0.7"/>
+        <stop offset="60%" stopColor="#8b5cf6" stopOpacity="0.5"/>
+        <stop offset="80%" stopColor="#553c9a" stopOpacity="0.3"/>
+        <stop offset="100%" stopColor="#2d1b69" stopOpacity="0.1"/>
+      </radialGradient>
+      <filter id="omMegaGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="omPulse" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="15" result="glow"/>
+        <feMerge>
+          <feMergeNode in="glow"/>
+          <feMergeNode in="glow"/>
+          <feMergeNode in="glow"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    {/* Outer illumination rings */}
+    <circle cx="100" cy="100" r="90" fill="none" stroke="url(#omIllumination)" strokeWidth="2" opacity="0.3" className="om-ring-outer"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="url(#omIllumination)" strokeWidth="1" opacity="0.5" className="om-ring-middle"/>
+    <circle cx="100" cy="100" r="50" fill="none" stroke="url(#omIllumination)" strokeWidth="1" opacity="0.7" className="om-ring-inner"/>
+    
+    {/* Main OM symbol - scaled up */}
+    <g transform="translate(50, 50) scale(2)">
+      <path d="M25 60 Q30 45 45 50 Q55 35 70 45 Q75 55 65 65 Q50 75 35 70 Q25 75 25 60 Z" 
+            fill="url(#omIllumination)" filter="url(#omPulse)" className="om-main-body"/>
+      <circle cx="65" cy="30" r="8" fill="url(#omIllumination)" filter="url(#omPulse)" className="om-dot"/>
+      <path d="M45 25 Q50 20 55 25 Q60 30 55 35 Q50 40 45 35 Q40 30 45 25" 
+            fill="url(#omIllumination)" filter="url(#omPulse)" className="om-curve"/>
+    </g>
+    
+    {/* Sacred geometry background */}
+    <polygon points="100,40 120,80 80,80" fill="none" stroke="url(#omIllumination)" strokeWidth="1" opacity="0.3" className="sacred-triangle"/>
+    <polygon points="100,160 120,120 80,120" fill="none" stroke="url(#omIllumination)" strokeWidth="1" opacity="0.3" className="sacred-triangle-inverted"/>
+  </svg>
+);
+
 const SpiritualInfinity = ({ size = 32, className = "" }) => (
   <svg width={size} height={size} viewBox="0 0 100 100" className={`spiritual-infinity ${className}`}>
     <defs>
@@ -290,6 +339,7 @@ const SpiritualSparkles = ({ size = 32, className = "" }) => (
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState('');
+  const [showOmAnimation, setShowOmAnimation] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   const fullText = "WELCOME TO THE JOURNEY OF FINDING YOUR PURPOSE YOU ALWAYS LOOKED FOR";
@@ -303,10 +353,15 @@ const App = () => {
         index++;
       } else {
         clearInterval(textInterval);
+        // Show OM animation after text finishes
+        setTimeout(() => {
+          setShowOmAnimation(true);
+        }, 1000);
+        // Then finish loading
         setTimeout(() => {
           setIsLoading(false);
           setTimeout(() => setIsVisible(true), 500);
-        }, 2000);
+        }, 4000);
       }
     }, 80);
 
@@ -353,6 +408,15 @@ const App = () => {
           <h1 className="loading-text">{loadingText}</h1>
           <div className="loading-cursor"></div>
         </div>
+        
+        {/* Illuminating OM Animation */}
+        {showOmAnimation && (
+          <div className="om-illumination-container">
+            <IlluminatingOm size={300} className="mega-om" />
+            <div className="om-illumination-text">ॐ</div>
+          </div>
+        )}
+        
         <div className="energy-waves">
           <div className="wave wave-1"></div>
           <div className="wave wave-2"></div>
@@ -505,13 +569,16 @@ const App = () => {
           </div>
         </div>
         <div className="container">
+          <div className="section-header">
+            <div className="section-symbol"><SpiritualGalaxy size={64} /></div>
+            <h2 className="section-title">Evolance</h2>
+            <p className="section-subtitle">Where Souls Meet Silicon for Sacred Transformation</p>
+          </div>
           <div className="evolance-content">
             <div className="evolance-text">
               <div className="platform-symbol">
                 <SpiritualInfinity size={80} className="rotating" />
               </div>
-              <h2 className="evolance-title">Evolance</h2>
-              <p className="evolance-tagline">Where Souls Meet Silicon for Sacred Transformation</p>
               <p className="evolance-description">
                 Evolance is not just a platform—it's a digital sanctuary where consciousness evolves through the harmonious blend of spiritual wisdom, emotional intelligence, and artificial intelligence. We're creating a new paradigm where technology serves the soul's deepest longing for growth, connection, and liberation.
               </p>
