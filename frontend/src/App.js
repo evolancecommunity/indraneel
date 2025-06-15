@@ -373,19 +373,19 @@ const App = () => {
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:indraneel@evolance.ai';
+    window.location.href = 'mailto:founder@evolance.info';
   };
 
   const handleCallClick = () => {
-    window.location.href = 'tel:+1234567890';
+    window.location.href = 'tel:+19165308224';
   };
 
   const handleVisitEvolance = () => {
-    window.open('https://evolance.ai', '_blank');
+    window.open('https://evolance.info', '_blank');
   };
 
   const handlePartnership = () => {
-    window.location.href = 'mailto:partnerships@evolance.ai?subject=Partnership Opportunity';
+    window.location.href = 'mailto:founder@evolance.info?subject=Partnership Opportunity';
   };
 
   if (isLoading) {
@@ -722,13 +722,13 @@ const App = () => {
             <div className="footer-links">
               <div className="footer-section">
                 <h5>Sacred Connection</h5>
-                <a href="mailto:indraneel@evolance.ai">Email</a>
+                <a href="mailto:founder@evolance.info">Email</a>
                 <a href="tel:+1234567890">Phone</a>
               </div>
               <div className="footer-section">
                 <h5>Conscious Technology</h5>
-                <a href="https://evolance.ai" target="_blank" rel="noopener noreferrer">Evolance Platform</a>
-                <a href="mailto:partnerships@evolance.ai">Sacred Partnerships</a>
+                <a href="https://evolance.info" target="_blank" rel="noopener noreferrer">Evolance Platform</a>
+                <a href="mailto:founder@evolance.info">Sacred Partnerships</a>
               </div>
             </div>
           </div>
