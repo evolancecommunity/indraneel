@@ -381,7 +381,7 @@ const App = () => {
   };
 
   const handleVisitEvolance = () => {
-    window.open('https://evolance.info', '_blank');
+    window.open('https://www.evolance.info', '_blank');
   };
 
   const handlePartnership = () => {
@@ -727,7 +727,7 @@ const App = () => {
               </div>
               <div className="footer-section">
                 <h5>Conscious Technology</h5>
-                <a href="https://evolance.info" target="_blank" rel="noopener noreferrer">Evolance Platform</a>
+                <a href="https://www.evolance.info" target="_blank" rel="noopener noreferrer">Evolance Platform</a>
                 <a href="mailto:founder@evolance.info">Sacred Partnerships</a>
               </div>
             </div>
